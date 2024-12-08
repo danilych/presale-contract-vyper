@@ -5,7 +5,6 @@ import {Test, console} from "forge-std/Test.sol";
 import {Counter} from "../src/Counter.sol";
 import {PresaleTest} from "./PresaleTest.sol";
 
-
 contract MockTest is PresaleTest {
     function setUp() public {
         fixture();

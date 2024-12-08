@@ -14,6 +14,8 @@ contract PresaleTest is Test {
     IPresale public presale;
 
     function fixture() public {
-        presale = IPresale(deployCode("Presale", abi.encode(address(10),address(30), block.timestamp, block.timestamp + 100)));
+        presale = IPresale(
+            deployCode("Presale", abi.encode(address(10), address(30), block.timestamp, block.timestamp + 100))
+        );
     }
 }
