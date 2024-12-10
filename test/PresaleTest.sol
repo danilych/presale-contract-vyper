@@ -2,7 +2,6 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {Counter} from "../src/Counter.sol";
 
 interface IPresale {
     function update_sale_start_timestamp(uint256 _sale_start_timestamp) external;
