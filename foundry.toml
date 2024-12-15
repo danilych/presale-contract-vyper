@@ -11,3 +11,6 @@ evm_version="cancun"
 
 [vyper]
 path = ".venv/bin/vyper"
+
+[fmt]
+bracket_spacing = true

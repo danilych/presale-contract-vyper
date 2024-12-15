@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.28;
 
-import {PresaleTest} from "test/PresaleTest.sol";
+import { PresaleTest } from "test/PresaleTest.sol";
 
 contract PresaleConstructorTest is PresaleTest {
     function setUp() public {

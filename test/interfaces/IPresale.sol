@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.28;
 
-import {IOwnable} from "./IOwnable.sol";
+import { IOwnable } from "./IOwnable.sol";
 
 interface IPresale is IOwnable {
     function update_sale_start_timestamp(uint256 _sale_start_timestamp) external;

@@ -7,4 +7,4 @@ interface IOwnable {
     function transfer_ownership(address newOwner) external;
 
     function renounce_ownership() external;
-}   
+}
