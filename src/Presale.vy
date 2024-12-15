@@ -3,6 +3,8 @@
 from ethereum.ercs import IERC20
 from snekmate.auth import ownable
 
+initializes: ownable
+
 event OwnerIsUpdated: newOwner: address
 event SaleStartTimestampIsUpdated: newSaleStartTimestamp: uint256
 event SaleEndTimestampIsUpdated: newSaleEndTimestamp: uint256
@@ -16,6 +18,8 @@ def __init__(_owner: address, _token: IERC20, _saleStartTimestamp: uint256, _sal
     assert _saleStartTimestamp < _saleEndTimestamp, "Invalid sale timestamps"
     assert _owner != empty(address), "Invalid owner address"
     assert _token != empty(IERC20), "Invalid token address"
+
+    ownable.__init__()
     
     self.saleStartTimestamp = _saleStartTimestamp
     self.saleEndTimestamp = _saleEndTimestamp
@@ -27,7 +31,7 @@ def __init__(_owner: address, _token: IERC20, _saleStartTimestamp: uint256, _sal
     
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
-    # self._check_owner()
+    ownable._check_owner()
     assert newSaleStartTimestamp < self.saleEndTimestamp, "New start timestamp is higher than end timestamp"
     
     self.saleStartTimestamp = newSaleStartTimestamp
