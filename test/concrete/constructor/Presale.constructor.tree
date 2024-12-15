@@ -1,0 +1,13 @@
+Presale.Constructor
+├── when token is address zero
+│   └── it reverts
+├── when saleStartTimestamp is greater than saleEndTimestamp
+│   └── it reverts
+└── when owner is not address zero and token is not address zero and saleStartTimestamp is less than saleEndTimestamp
+    ├── it initializes ownable
+    ├── it sets saleStartTimestamp to saleStartTimestamp
+    ├── it sets saleEndTimestamp to saleEndTimestamp
+    ├── it sets token to token
+    ├── it emits SaleStartTimestampIsUpdated with newSaleStartTimestamp as saleStartTimestamp
+    ├── it emits SaleEndTimestampIsUpdated with newSaleEndTimestamp as saleEndTimestamp
+    └── it emits TokenIsUpdated with newToken as token

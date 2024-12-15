@@ -5,6 +5,7 @@
 ![Vyper](https://img.shields.io/badge/-Vyper-purple?style=for-the-badge&logo=python&logoColor=white)
 ![Echidna](https://img.shields.io/badge/-Echidna-090909?style=for-the-badge&logo=ethereum)
 ![Halmos](https://img.shields.io/badge/-Echidna-090909?style=for-the-badge&logo=ethereum)
+![Bun](https://bun.sh/)
 
 Vyper `0.4.0` is used in the project.
 
