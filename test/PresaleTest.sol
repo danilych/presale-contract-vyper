@@ -11,8 +11,12 @@ contract PresaleTest is Test {
 
     ERC20Sample public token;
 
+    ERC20Sample public paymentToken;
+
     function fixture() public {
         token = new ERC20Sample();
+
+        paymentToken = new ERC20Sample();
 
         presale = IPresale(deployCode("Presale", abi.encode(token, block.timestamp, block.timestamp + 1 days)));
     }
