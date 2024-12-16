@@ -2,7 +2,7 @@
 src = "src"
 out = "out"
 
-libs = ["lib", ".venv/lib/python3.12/site-packages"]
+libs = ["lib"]
 
 skip = ["**/snekmate/**/*[!c][!k].vy", "**/snekmate/**/*.vyi"] # Skip the compilation of non-mock and interface files.
 evm_version="cancun"
@@ -14,3 +14,5 @@ path = ".venv/bin/vyper"
 
 [fmt]
 bracket_spacing = true
+sort_imports = true
+contract_new_lines = true
