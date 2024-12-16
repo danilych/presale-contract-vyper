@@ -29,6 +29,26 @@ jobs:
         run: |
           forge --version
 
+      - name: Install Python 3.12.0
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.0
+
+      - name: Verify Python installation
+        run: python --version
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "export PATH=\"$HOME/.local/bin:$PATH\"" >> $GITHUB_ENV
+
+      - name: Verify Poetry installation
+        run: poetry --version
+
+      - name: Install dependencies
+        run: poetry install
+        run: npm install
+
       - name: Run Forge fmt
         run: |
           forge fmt --check
