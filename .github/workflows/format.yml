@@ -1,4 +1,4 @@
-name: build
+name: test
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: true
 
-    name: Foundry build
+    name: Foundry test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,11 +51,15 @@ jobs:
         run: poetry --version
 
       - name: Install dependencies
-        run: |
-          poetry install
-          npm install
+        run: poetry install
+        run: npm install
 
       - name: Run Forge build
         run: |
           forge build --sizes
         id: build
+
+      - name: Run Forge tests
+        run: |
+          forge test -vvv
+        id: test
