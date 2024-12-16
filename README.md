@@ -23,6 +23,7 @@ https://github.com/NomicFoundation/hardhat/issues/5479
     - [Configurable Token Prices and Timeframes](#configurable-token-prices-and-timeframes)
     - [All-in-One Solution](#all-in-one-solution)
   - [Requirements](#requirements)
+    - [Poetry](#poetry)
   - [Get Started](#get-started)
   - [Misc](#misc)
   - [Testing Approach](#testing-approach)
@@ -60,18 +61,24 @@ Key Features
 - [echidna](https://github.com/crytic/echidna)
 - [halmos](https://github.com/a16z/halmos)
 
+### Poetry 
+
+Poetry is used here for installing vyper compiler with selected version in python virtual environment. Such as it is recommend in official documentation. Also Poetry is used as package manager for managing packages like snekmate.
+
+https://docs.vyperlang.org/en/stable/installing-vyper.html
+
 ## Get Started
 
 ```shell
-poetry install
+just setup
 ```
 
 ```shell
-forge install
+just build
 ```
 
 ```shell
-forge compile
+just compile
 ```
 
 ## Misc
