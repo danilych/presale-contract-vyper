@@ -11,7 +11,6 @@ build:
     forge build --lib-paths .venv/lib/python3.12/site-packages
 
 setup:
-    bun install
-    forge install
+    forge soldeer install
     poetry env use 3.12
     poetry install
