@@ -1,2 +1,2 @@
-forge-std/=lib/forge-std/src/
 @openzeppelin/=node_modules/@openzeppelin/
+forge-std/=dependencies/forge-std-1.9.4/src/

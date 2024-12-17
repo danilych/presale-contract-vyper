@@ -16,3 +16,6 @@ docs/
 .venv
 
 node_modules
+
+# Soldeer
+/dependencies

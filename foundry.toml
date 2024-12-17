@@ -2,7 +2,7 @@
 src = "src"
 out = "out"
 
-libs = ["lib"]
+libs = ["lib", "dependencies"]
 
 skip = ["**/snekmate/**/*[!c][!k].vy", "**/snekmate/**/*.vyi"] # Skip the compilation of non-mock and interface files.
 evm_version="cancun"
@@ -14,5 +14,6 @@ path = ".venv/bin/vyper"
 
 [fmt]
 bracket_spacing = true
-sort_imports = true
-contract_new_lines = true
+
+[dependencies]
+forge-std = "1.9.4"
