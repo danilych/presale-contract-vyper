@@ -5,6 +5,12 @@ from snekmate.auth import ownable
 
 initializes: ownable
 
+exports: (
+    ownable.owner,
+    ownable.transfer_ownership,
+    ownable.renounce_ownership,
+)
+
 event SaleStartTimestampIsUpdated: newSaleStartTimestamp: uint256
 event SaleEndTimestampIsUpdated: newSaleEndTimestamp: uint256
 event TokenIsUpdated: newToken: IERC20
@@ -16,6 +22,7 @@ saleEndTimestamp: public(uint256)
 @deploy
 def __init__( _token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: uint256):
     assert _saleStartTimestamp < _saleEndTimestamp, "Invalid sale timestamps"
+    assert _saleStartTimestamp >= block.timestamp, "Invalid start timestamp"
     assert _token != empty(IERC20), "Invalid token address"
 
     ownable.__init__()
@@ -26,6 +33,7 @@ def __init__( _token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: u
 
     log SaleStartTimestampIsUpdated(_saleStartTimestamp)
     log SaleEndTimestampIsUpdated(_saleEndTimestamp)
+    log TokenIsUpdated(_token)
     
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256):

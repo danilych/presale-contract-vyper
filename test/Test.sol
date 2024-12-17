@@ -10,4 +10,5 @@ abstract contract Test is ForgeTest {
     address internal chuck = makeAddr("chuck");
     address internal manager = makeAddr("manager");
     address internal beneficiary = makeAddr("beneficiary");
+    address internal deployer = makeAddr("deployer");
 }

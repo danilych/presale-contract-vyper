@@ -3,6 +3,8 @@ Presale.Constructor
 │   └── it reverts
 ├── when saleStartTimestamp is greater than saleEndTimestamp
 │   └── it reverts
+├── when saleStartTimestamp less than block timestamp
+│   └── it reverts
 └── when owner is not address zero and token is not address zero and saleStartTimestamp is less than saleEndTimestamp
     ├── it initializes ownable
     ├── it sets saleStartTimestamp to saleStartTimestamp
