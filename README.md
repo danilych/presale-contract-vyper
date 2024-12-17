@@ -59,7 +59,6 @@ Key Features
 - [bulloak](https://github.com/alexfertel/bulloak)
 - [echidna](https://github.com/crytic/echidna)
 - [halmos](https://github.com/a16z/halmos)
-- ![Bun](https://bun.sh/)
 
 ### Poetry 
 
@@ -68,6 +67,8 @@ Poetry is used here for installing vyper compiler with selected version in pytho
 https://docs.vyperlang.org/en/stable/installing-vyper.html
 
 ## Get Started
+
+Use `just` in your terminal to see all available commands in your project.
 
 ```shell
 just setup

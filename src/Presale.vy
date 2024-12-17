@@ -20,7 +20,7 @@ saleStartTimestamp: public(uint256)
 saleEndTimestamp: public(uint256)
 
 @deploy
-def __init__( _token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: uint256):
+def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: uint256):
     assert _saleStartTimestamp < _saleEndTimestamp, "Invalid sale timestamps"
     assert _saleStartTimestamp >= block.timestamp, "Invalid start timestamp"
     assert _token != empty(IERC20), "Invalid token address"
