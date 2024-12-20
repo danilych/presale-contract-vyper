@@ -1,0 +1,8 @@
+Presale.update_sale_start_timestamp
+├── when caller is not owner
+│   └── it reverts
+├── when new start timestamp is greater than end timestamp
+│   └── it reverts
+└── when caller is owner and new start timestamp is less than end timestamp
+    ├── it emits SaleStartTimestampIsUpdated with newSaleStartTimestamp
+    └── it updates saleStartTimestamp
