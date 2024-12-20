@@ -2,6 +2,7 @@
 
 from ethereum.ercs import IERC20
 from snekmate.auth import ownable
+from interfaces import IPresale
 
 initializes: ownable
 
@@ -10,10 +11,6 @@ exports: (
     ownable.transfer_ownership,
     ownable.renounce_ownership,
 )
-
-event SaleStartTimestampIsUpdated: newSaleStartTimestamp: uint256
-event SaleEndTimestampIsUpdated: newSaleEndTimestamp: uint256
-event TokenIsUpdated: newToken: IERC20
 
 token: public(IERC20)
 saleStartTimestamp: public(uint256)
@@ -31,9 +28,9 @@ def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: ui
     self.saleEndTimestamp = _saleEndTimestamp
     self.token = _token
 
-    log SaleStartTimestampIsUpdated(_saleStartTimestamp)
-    log SaleEndTimestampIsUpdated(_saleEndTimestamp)
-    log TokenIsUpdated(_token)
+    log IPresale.SaleStartTimestampIsUpdated(_saleStartTimestamp)
+    log IPresale.SaleEndTimestampIsUpdated(_saleEndTimestamp)
+    log IPresale.TokenIsUpdated(_token)
     
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
@@ -41,4 +38,4 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     assert newSaleStartTimestamp < self.saleEndTimestamp, "New start timestamp is higher than end timestamp"
     
     self.saleStartTimestamp = newSaleStartTimestamp
-    log SaleStartTimestampIsUpdated(newSaleStartTimestamp)    
+    log IPresale.SaleStartTimestampIsUpdated(newSaleStartTimestamp)

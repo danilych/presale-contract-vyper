@@ -1,0 +1,27 @@
+# pragma version 0.4.0
+
+from ethereum.ercs import IERC20
+
+event SaleStartTimestampIsUpdated:
+    newSaleStartTimestamp: uint256
+
+event SaleEndTimestampIsUpdated:
+    newSaleEndTimestamp: uint256
+
+event TokenIsUpdated:
+    newToken: IERC20
+
+@view
+@external
+def token() -> IERC20: ...
+
+@view
+@external
+def saleStartTimestamp() -> uint256: ...
+
+@view
+@external
+def saleEndTimestamp() -> uint256: ...
+
+@external
+def update_sale_start_timestamp(newSaleStartTimestamp: uint256): ...
