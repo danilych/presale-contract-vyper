@@ -39,3 +39,12 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     
     self.saleStartTimestamp = newSaleStartTimestamp
     log IPresale.SaleStartTimestampIsUpdated(newSaleStartTimestamp)
+
+@external
+def deposit_tokens(amount: uint256):
+    assert block.timestamp <= self.saleStartTimestamp, "Sale has not started"
+    assert amount > 0, "Amount must be greater than 0"
+    
+    assert extcall self.token.transferFrom(msg.sender, self, amount), "Token transfer failed"
+    
+    log IPresale.TokensDeposited(msg.sender, amount)

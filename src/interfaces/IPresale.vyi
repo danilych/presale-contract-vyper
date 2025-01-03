@@ -11,6 +11,10 @@ event SaleEndTimestampIsUpdated:
 event TokenIsUpdated:
     newToken: IERC20
 
+event TokensDeposited:
+    from_: indexed(address)
+    amount: uint256
+
 @view
 @external
 def token() -> IERC20: ...
@@ -25,3 +29,6 @@ def saleEndTimestamp() -> uint256: ...
 
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256): ...
+
+@external
+def deposit_tokens(amount: uint256): ...
