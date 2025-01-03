@@ -26,6 +26,7 @@ https://github.com/NomicFoundation/hardhat/issues/5479
   - [Get Started](#get-started)
   - [Misc](#misc)
   - [Testing Approach](#testing-approach)
+  - [Protocol Requirements](#protocol-requirements)
 
 ---
 
@@ -103,3 +104,23 @@ The Branching Tree Technique organizes tests hierarchically, much like a tree st
     - Leaves: Represent specific edge cases or end states.
 
 This technique ensures no part of the logic remains untested, particularly in complex scenarios with multiple dependencies or conditional flows.
+
+## Protocol Requirements
+
+- user can purchase both, erc20 and native tokens.
+- owner cannot update price after presale start.
+- owner can update price before presale start.
+- owner can update presale start.
+- owner can update presale end.
+- owner can update presale cliff.
+- owner can update presale unlock.
+- owner can update presale whitelist.
+- owner can select public or whitelisted presale.
+- anyone can deposit tokens into presale.
+- owner can withdraw unsold tokens anytime.
+- presale is finished when presale end is reached.
+- presale is finished when all token liquidity is sold.
+- owner can update presale schedule (start/end), only if presale is not started.
+- in whitelist presale different addresses may have custom price and unlock schedule.
+- owner can update whitelist root anytime.
+- it is not possible to make a presale which takes both erc20 and native tokens.
