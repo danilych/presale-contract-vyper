@@ -12,14 +12,21 @@ exports: (
     ownable.renounce_ownership,
 )
 
+# @notice Token which is used for presale.
 token: public(IERC20)
 
+# @notice Liquidity of tokens in the contract.
 liquidity: public(uint256)
 
+# @notice Sale start timestamp.
 saleStartTimestamp: public(uint256)
 
+# @notice Sale end timestamp.
 saleEndTimestamp: public(uint256)
 
+# @param _token Token which is used for presale.
+# @param _saleStartTimestamp Sale start timestamp.
+# @param _saleEndTimestamp Sale end timestamp.
 @deploy
 def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: uint256):
     assert _saleStartTimestamp < _saleEndTimestamp, "Invalid sale timestamps"
@@ -36,6 +43,9 @@ def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: ui
     log IPresale.SaleEndTimestampIsUpdated(_saleEndTimestamp)
     log IPresale.TokenIsUpdated(_token)
     
+# @notice Updates sale start timestamp.
+# @dev Can be used only by owner.
+# @param newSaleStartTimestamp New sale start timestamp.
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     ownable._check_owner()
@@ -44,6 +54,9 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     self.saleStartTimestamp = newSaleStartTimestamp
     log IPresale.SaleStartTimestampIsUpdated(newSaleStartTimestamp)
 
+# @notice Deposits tokens for presale and increase liquidity in the contract.
+# @dev Can be used only by owner.
+# @param amount Amount of tokens to deposit.
 @external
 def deposit_tokens(amount: uint256):
     ownable._check_owner()
