@@ -8,6 +8,8 @@ import { IOwnable } from "./IOwnable.sol";
 interface IPresale is IOwnable {
     function update_sale_start_timestamp(uint256 _sale_start_timestamp) external;
 
+    function deposit_tokens(uint256 amount) external;
+
     function saleStartTimestamp() external view returns (uint256);
 
     function saleEndTimestamp() external view returns (uint256);
@@ -17,4 +19,5 @@ interface IPresale is IOwnable {
     event SaleStartTimestampIsUpdated(uint256 newSaleStartTimestamp);
     event SaleEndTimestampIsUpdated(uint256 newSaleEndTimestamp);
     event TokenIsUpdated(IERC20 newToken);
+    event TokensDeposited(address indexed from_, uint256 amount);
 }
