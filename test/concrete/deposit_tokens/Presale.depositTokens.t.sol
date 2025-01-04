@@ -57,6 +57,7 @@ contract PresaledepositTokens is PresaleTest {
 
         // it state is updated - tokens are transferred from owner to presale
         assertEq(token.balanceOf(address(presale)), amount, "Presale balance not updated");
+        assertEq(presale.liquidity(), amount, "Liquidity not updated");
 
         vm.stopPrank();
     }

@@ -13,7 +13,11 @@ exports: (
 )
 
 token: public(IERC20)
+
+liquidity: public(uint256)
+
 saleStartTimestamp: public(uint256)
+
 saleEndTimestamp: public(uint256)
 
 @deploy
@@ -47,5 +51,7 @@ def deposit_tokens(amount: uint256):
     assert amount > 0, "Amount must be greater than 0"
     
     assert extcall self.token.transferFrom(msg.sender, self, amount), "Token transfer failed"
+
+    self.liquidity += amount
     
     log IPresale.TokensDeposited(msg.sender, amount)

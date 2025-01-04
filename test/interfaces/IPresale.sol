@@ -15,6 +15,8 @@ interface IPresale is IOwnable {
     function saleEndTimestamp() external view returns (uint256);
 
     function token() external view returns (IERC20);
+    
+    function liquidity() external view returns (uint256);
 
     event SaleStartTimestampIsUpdated(uint256 newSaleStartTimestamp);
     event SaleEndTimestampIsUpdated(uint256 newSaleEndTimestamp);
