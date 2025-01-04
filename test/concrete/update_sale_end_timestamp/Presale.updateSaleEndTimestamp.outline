@@ -1,0 +1,13 @@
+Presale.update_sale_end_timestamp
+    test_WhenCallerIsNotOwner
+        when caller is not owner
+            ✓ it reverts with "ownable: caller is not the owner"
+
+    test_WhenNewEndTimestampIsLowerThanStartTimestamp
+        when new end timestamp is lower than start timestamp
+            ✓ it reverts with "New end timestamp is lower than start timestamp"
+
+    test_WhenCallerIsOwnerAndNewEndTimestampIsHigherThanStartTimestamp
+        when caller is owner and new end timestamp is higher than start timestamp
+            ✓ it emits SaleEndTimestampIsUpdated with newSaleEndTimestamp
+            ✓ it updates saleEndTimestamp

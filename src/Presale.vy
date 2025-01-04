@@ -55,6 +55,17 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     self.schedule.saleStartTimestamp = newSaleStartTimestamp
     log IPresale.SaleStartTimestampIsUpdated(newSaleStartTimestamp)
 
+# @notice Updates sale end timestamp.
+# @dev Can be used only by owner.
+# @param newSaleEndTimestamp New sale end timestamp.
+@external
+def update_sale_end_timestamp(newSaleEndTimestamp: uint256):
+    ownable._check_owner()
+    assert newSaleEndTimestamp > self.schedule.saleStartTimestamp, "New end timestamp is lower than start timestamp"
+    
+    self.schedule.saleEndTimestamp = newSaleEndTimestamp
+    log IPresale.SaleEndTimestampIsUpdated(newSaleEndTimestamp)
+
 # @notice Deposits tokens for presale and increase liquidity in the contract.
 # @dev Can be used only by owner.
 # @param amount Amount of tokens to deposit.

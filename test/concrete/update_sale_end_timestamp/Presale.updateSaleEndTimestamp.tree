@@ -1,0 +1,8 @@
+Presale.update_sale_end_timestamp
+├── when caller is not owner
+│   └── it reverts
+├── when new end timestamp is lower than start timestamp
+│   └── it reverts
+└── when caller is owner and new end timestamp is higher than start timestamp
+    ├── it emits
+    └── it state is updated

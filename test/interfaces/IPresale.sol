@@ -13,6 +13,8 @@ interface IPresale is IOwnable {
 
     function update_sale_start_timestamp(uint256 _sale_start_timestamp) external;
 
+    function update_sale_end_timestamp(uint256 _sale_end_timestamp) external;
+
     function deposit_tokens(uint256 amount) external;
 
     function schedule() external view returns (Schedule memory);
