@@ -5,8 +5,10 @@ Presale.depositTokens
 │   └── it reverts
 ├── when amount is zero
 │   └── it reverts
-└── when owner deposit tokens
-    ├── it emits
-    ├── it transfers tokens
-    ├── it updates balance
-    └── it state is updated
+├── when owner deposit tokens
+│   ├── it emits
+│   ├── it transfers tokens
+│   ├── it updates balance
+│   └── it state is updated
+└── when token transfer is not successful
+    └── it reverts

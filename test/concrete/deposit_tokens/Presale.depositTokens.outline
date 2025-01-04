@@ -10,3 +10,5 @@ Presale.depositTokens
         it transfers tokens
         it updates balance
         it state is updated
+    when token transfer is not successful
+        it reverts
