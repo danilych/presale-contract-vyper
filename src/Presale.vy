@@ -42,7 +42,8 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
 
 @external
 def deposit_tokens(amount: uint256):
-    assert block.timestamp <= self.saleStartTimestamp, "Sale has not started"
+    ownable._check_owner()
+    assert block.timestamp <= self.saleStartTimestamp, "Sale is already started"
     assert amount > 0, "Amount must be greater than 0"
     
     assert extcall self.token.transferFrom(msg.sender, self, amount), "Token transfer failed"

@@ -116,7 +116,7 @@ This technique ensures no part of the logic remains untested, particularly in co
 - owner can update presale unlock.
 - owner can update presale whitelist.
 - owner can select public or whitelisted presale.
-- anyone can deposit tokens into presale.
+- only owner can deposit tokens into presale.
 - owner can withdraw unsold tokens anytime.
 - presale is finished when presale end is reached.
 - presale is finished when all token liquidity is sold.
