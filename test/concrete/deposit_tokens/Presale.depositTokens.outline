@@ -1,0 +1,12 @@
+Presale.depositTokens 
+    when sale is already started
+        it reverts
+    when not owner try to deposit tokens
+        it reverts
+    when amount is zero
+        it reverts
+    when owner deposit tokens
+        it emits
+        it transfers tokens
+        it updates balance
+        it state is updated
