@@ -15,7 +15,7 @@ contract PresaledepositTokens is PresaleTest {
     function test_WhenSaleIsAlreadyStarted() external {
         // it reverts
         vm.startPrank(deployer);
-        vm.warp(presale.saleStartTimestamp() + 1);
+        vm.warp(presale.schedule().saleStartTimestamp + 1);
         vm.expectRevert("Sale is already started");
         presale.deposit_tokens(1 ether);
         vm.stopPrank();

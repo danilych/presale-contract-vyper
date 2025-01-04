@@ -49,10 +49,10 @@ contract PresaleConstructor is PresaleTest {
         assertEq(presale.owner(), deployer);
 
         // it sets saleStartTimestamp to saleStartTimestamp
-        assertEq(presale.saleStartTimestamp(), block.timestamp);
+        assertEq(presale.schedule().saleStartTimestamp, block.timestamp);
 
         // it sets saleEndTimestamp to saleEndTimestamp
-        assertEq(presale.saleEndTimestamp(), block.timestamp + 1 days);
+        assertEq(presale.schedule().saleEndTimestamp, block.timestamp + 1 days);
 
         // it sets token to token
         assertEq(address(presale.token()), address(token));

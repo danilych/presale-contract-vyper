@@ -12,17 +12,19 @@ exports: (
     ownable.renounce_ownership,
 )
 
+struct Schedule:
+    saleStartTimestamp: uint256
+    saleEndTimestamp: uint256
+
 # @notice Token which is used for presale.
 token: public(IERC20)
 
 # @notice Liquidity of tokens in the contract.
 liquidity: public(uint256)
 
-# @notice Sale start timestamp.
-saleStartTimestamp: public(uint256)
-
-# @notice Sale end timestamp.
-saleEndTimestamp: public(uint256)
+# @notice Presale schedule.
+# @dev Contains sale start and end timestamps.
+schedule: public(Schedule)
 
 # @param _token Token which is used for presale.
 # @param _saleStartTimestamp Sale start timestamp.
@@ -35,8 +37,7 @@ def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: ui
 
     ownable.__init__()
     
-    self.saleStartTimestamp = _saleStartTimestamp
-    self.saleEndTimestamp = _saleEndTimestamp
+    self.schedule = Schedule(saleStartTimestamp = _saleStartTimestamp, saleEndTimestamp = _saleEndTimestamp)
     self.token = _token
 
     log IPresale.SaleStartTimestampIsUpdated(_saleStartTimestamp)
@@ -49,9 +50,9 @@ def __init__(_token: IERC20, _saleStartTimestamp: uint256, _saleEndTimestamp: ui
 @external
 def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
     ownable._check_owner()
-    assert newSaleStartTimestamp < self.saleEndTimestamp, "New start timestamp is higher than end timestamp"
+    assert newSaleStartTimestamp < self.schedule.saleEndTimestamp, "New start timestamp is higher than end timestamp"
     
-    self.saleStartTimestamp = newSaleStartTimestamp
+    self.schedule.saleStartTimestamp = newSaleStartTimestamp
     log IPresale.SaleStartTimestampIsUpdated(newSaleStartTimestamp)
 
 # @notice Deposits tokens for presale and increase liquidity in the contract.
@@ -60,7 +61,7 @@ def update_sale_start_timestamp(newSaleStartTimestamp: uint256):
 @external
 def deposit_tokens(amount: uint256):
     ownable._check_owner()
-    assert block.timestamp <= self.saleStartTimestamp, "Sale is already started"
+    assert block.timestamp <= self.schedule.saleStartTimestamp, "Sale is already started"
     assert amount > 0, "Amount must be greater than 0"
     
     assert extcall self.token.transferFrom(msg.sender, self, amount), "Token transfer failed"

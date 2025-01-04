@@ -6,13 +6,16 @@ import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IOwnable } from "./IOwnable.sol";
 
 interface IPresale is IOwnable {
+    struct Schedule {
+        uint256 saleStartTimestamp;
+        uint256 saleEndTimestamp;
+    }
+
     function update_sale_start_timestamp(uint256 _sale_start_timestamp) external;
 
     function deposit_tokens(uint256 amount) external;
 
-    function saleStartTimestamp() external view returns (uint256);
-
-    function saleEndTimestamp() external view returns (uint256);
+    function schedule() external view returns (Schedule memory);
 
     function token() external view returns (IERC20);
     

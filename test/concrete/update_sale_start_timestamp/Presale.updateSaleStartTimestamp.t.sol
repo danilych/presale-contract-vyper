@@ -21,7 +21,7 @@ contract PresaleUpdateSaleStartTimestamp is PresaleTest {
     function test_WhenNewStartTimestampIsGreaterThanEndTimestamp() external {
         // it reverts
         vm.startPrank(deployer);
-        uint256 endTimestamp = presale.saleEndTimestamp();
+        uint256 endTimestamp = presale.schedule().saleEndTimestamp;
         vm.expectRevert(bytes("New start timestamp is higher than end timestamp"));
         presale.update_sale_start_timestamp(endTimestamp + 1);
         vm.stopPrank();
@@ -40,6 +40,6 @@ contract PresaleUpdateSaleStartTimestamp is PresaleTest {
         vm.stopPrank();
 
         // it updates saleStartTimestamp
-        assertEq(presale.saleStartTimestamp(), newStartTimestamp);
+        assertEq(presale.schedule().saleStartTimestamp, newStartTimestamp);
     }
 }
