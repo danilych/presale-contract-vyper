@@ -33,6 +33,9 @@ https://github.com/NomicFoundation/hardhat/issues/5479
 ## Overview
 
 This project introduces a fully decentralized presale smart contract built in Vyper, designed to streamline the process of Initial DEX Offerings (IDO) and token vesting—all within a single, robust contract. The goal is to provide an efficient and versatile solution for token distribution while maintaining full decentralization.
+
+![Architecture](architecture.drawio.png)
+
 Key Features
 
 ### Public or Whitelisted Presales
