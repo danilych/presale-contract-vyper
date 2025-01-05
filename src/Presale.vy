@@ -81,6 +81,9 @@ def deposit_tokens(amount: uint256):
     
     log IPresale.TokensDeposited(msg.sender, amount)
 
+# @notice Withdraws tokens from presale and decrease liquidity in the contract.
+# @dev Can be used only by owner.
+# @param amount Amount of tokens to withdraw.
 @external
 def withdraw_tokens(amount: uint256):
     ownable._check_owner()
