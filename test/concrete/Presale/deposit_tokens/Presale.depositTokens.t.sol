@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.28;
 
-import {PresaleTest} from "../../PresaleTest.sol";
-import {IPresale} from "../../interfaces/IPresale.sol";
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {PresaleTest} from "test/PresaleTest.sol";
+import {IPresale} from "test/interfaces/IPresale.sol";
 
 contract PresaledepositTokens is PresaleTest {
     function setUp() public {
