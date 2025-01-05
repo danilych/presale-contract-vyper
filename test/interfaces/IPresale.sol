@@ -17,6 +17,8 @@ interface IPresale is IOwnable {
 
     function deposit_tokens(uint256 amount) external;
 
+    function withdraw_tokens(uint256 amount) external;
+
     function schedule() external view returns (Schedule memory);
 
     function token() external view returns (IERC20);
@@ -27,4 +29,5 @@ interface IPresale is IOwnable {
     event SaleEndTimestampIsUpdated(uint256 newSaleEndTimestamp);
     event TokenIsUpdated(IERC20 newToken);
     event TokensDeposited(address indexed from_, uint256 amount);
+    event TokensWithdrawn(address indexed to_, uint256 amount);
 }
