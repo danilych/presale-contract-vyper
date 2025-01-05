@@ -1,0 +1,12 @@
+Presale.withdraw_tokens
+    when amount is zero
+        it reverts
+    when caller is not owner
+        it reverts
+    when caller is owner and not enough liquidity
+        it reverts
+    when caller is owner and enough liquidity
+        it emits
+        it transfers tokens
+        it updates balance
+        it state is updated

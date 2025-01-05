@@ -15,6 +15,10 @@ event TokensDeposited:
     from_: indexed(address)
     amount: uint256
 
+event TokensWithdrawn:
+    to_: indexed(address)
+    amount: uint256
+
 @view
 @external
 def token() -> IERC20: ...

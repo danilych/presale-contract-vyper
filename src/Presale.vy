@@ -80,3 +80,14 @@ def deposit_tokens(amount: uint256):
     self.liquidity += amount
     
     log IPresale.TokensDeposited(msg.sender, amount)
+
+@external
+def withdraw_tokens(amount: uint256):
+    ownable._check_owner()
+    assert amount > 0, "Amount must be greater than 0"
+    assert self.liquidity >= amount, "Not enough liquidity"
+    
+    self.liquidity -= amount
+    assert extcall self.token.transfer(msg.sender, amount), "Token transfer failed"
+
+    log IPresale.TokensWithdrawn(msg.sender, amount)
